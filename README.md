@@ -492,7 +492,7 @@ npm start
 
 http://localhost:3000
 
-```
+````
 
 ## API Endpoints
 
@@ -511,29 +511,34 @@ http://localhost:3000
 ```bash
 git clone https://github.com/yourusername/aexis-exoplanet-haunter.git
 cd aexis-exoplanet-haunter
-```
+````
 
 2. **Install dependencies**
+
 ```bash
 npm install
 ```
 
 3. **Create required directories**
+
 ```bash
 mkdir -p data/uploads
 ```
 
 4. **Start development server**
+
 ```bash
 npm run dev
 ```
 
 5. **Start production server**
+
 ```bash
 npm start
 ```
 
 6. **Access the application**
+
 - Home: `http://localhost:3000/`
 - Explorer: `http://localhost:3000/explore`
 - Lab: `http://localhost:3000/lab`
@@ -543,7 +548,9 @@ npm start
 ## 🔌 API Endpoints
 
 ### Classification
+
 **POST** `/api/classify`
+
 ```json
 {
   "orbitalPeriod": 365.25,
@@ -555,6 +562,7 @@ npm start
 ```
 
 **Response:**
+
 ```json
 {
   "success": true,
@@ -568,7 +576,9 @@ npm start
 ```
 
 ### Batch Classification
+
 **POST** `/api/classify/batch`
+
 ```json
 {
   "exoplanets": [
@@ -579,7 +589,9 @@ npm start
 ```
 
 ### Model Training
+
 **POST** `/api/train`
+
 ```json
 {
   "dataPath": "data/uploads/dataset.csv",
@@ -592,7 +604,9 @@ npm start
 ```
 
 ### Hyperparameter Validation
+
 **POST** `/api/validate`
+
 ```json
 {
   "hyperparameters": { "nEstimators": 150, "maxDepth": 15 },
@@ -601,7 +615,9 @@ npm start
 ```
 
 ### Model Deployment
+
 **POST** `/api/deploy`
+
 ```json
 {
   "modelVersion": "2.2",
@@ -610,6 +626,7 @@ npm start
 ```
 
 ### Metrics & Analytics
+
 - **GET** `/api/metrics` - Current model performance
 - **GET** `/api/metrics/confusion-matrix` - Confusion matrix data
 - **GET** `/api/metrics/history` - Model version history
@@ -617,11 +634,14 @@ npm start
 - **GET** `/api/data/historical` - Historical classification data
 
 ### File Upload with Auto-Evaluation
+
 **POST** `/api/upload`
+
 - Content-Type: `multipart/form-data`
 - Field: `datafile` (CSV file)
 
 **Response with Evaluation:**
+
 ```json
 {
   "success": true,
@@ -644,6 +664,7 @@ npm start
 ```
 
 ### File Management
+
 **GET** `/api/files` - List all uploaded files
 
 ---
@@ -663,6 +684,7 @@ When you upload a CSV file in **The Lab**, the system automatically:
 ### Required CSV Columns (case-insensitive)
 
 The system looks for these columns:
+
 - `orbital_period` / `orbitalPeriod` / `period`
 - `planet_radius` / `planetRadius` / `radius`
 - `stellar_temp` / `stellarTemp` / `teff`
@@ -680,17 +702,18 @@ orbital_period,planet_radius,stellar_temp,transit_depth,impact_param,classificat
 
 ### Evaluation Criteria
 
-| Metric | Description | Good Value |
-|--------|-------------|------------|
-| **Row Count** | Number of samples | ≥ 100 |
-| **Column Count** | Number of features | ≥ 5 |
-| **Completeness** | % of required features | ≥ 80% |
-| **Quality Score** | Overall data quality | ≥ 70% |
-| **Ready for Training** | Can train model now? | true |
+| Metric                 | Description            | Good Value |
+| ---------------------- | ---------------------- | ---------- |
+| **Row Count**          | Number of samples      | ≥ 100      |
+| **Column Count**       | Number of features     | ≥ 5        |
+| **Completeness**       | % of required features | ≥ 80%      |
+| **Quality Score**      | Overall data quality   | ≥ 70%      |
+| **Ready for Training** | Can train model now?   | true       |
 
 ### Test with Sample Data
 
 A sample CSV file is included:
+
 ```
 data/sample_exoplanets.csv
 ```
@@ -702,16 +725,18 @@ Upload it to see automatic evaluation in action!
 ## 🎨 Design System
 
 ### Color Palette
+
 ```css
 --true-black: #000000;
---electric-cyan: #00FFFF;
---gamma-orange: #FF8C00;
---white: #FFFFFF;
+--electric-cyan: #00ffff;
+--gamma-orange: #ff8c00;
+--white: #ffffff;
 --glass-bg: rgba(255, 255, 255, 0.05);
 --glass-border: rgba(0, 255, 255, 0.2);
 ```
 
 ### Glassmorphism Effect
+
 ```css
 .glass {
   background: rgba(255, 255, 255, 0.05);
@@ -723,6 +748,7 @@ Upload it to see automatic evaluation in action!
 ```
 
 ### Animations
+
 - **Ripple Effect**: Button press feedback
 - **Glow Transition**: Hover states with increased luminosity
 - **Scanline Overlay**: CSS gradient animation on results
@@ -739,6 +765,7 @@ Upload it to see automatic evaluation in action!
 **Purpose**: User-friendly interface for single exoplanet classification
 
 **Features**:
+
 - 8 input fields with info tooltips
 - Floating label animations
 - Cyan glow on input focus
@@ -757,6 +784,7 @@ Upload it to see automatic evaluation in action!
 **Features**:
 
 #### Data Management
+
 - Drag-and-drop file upload zone
 - Real-time upload progress bar
 - Automatic dataset evaluation
@@ -764,17 +792,20 @@ Upload it to see automatic evaluation in action!
 - Quality metrics display
 
 #### Metrics Dashboard
+
 - SVG circular progress gauge (animated stroke-dashoffset)
 - 2x2 confusion matrix with hover effects
 - Real-time accuracy/precision/recall display
 - Model version history
 
 #### Feature Importance
+
 - Horizontal bar chart (Plotly)
 - Staggered animation on load
 - Top 5 influential features
 
 #### Hyperparameter Tuning
+
 - Custom range sliders (cyan fill, orange thumb)
 - Algorithm dropdown with glassmorphic options
 - Real-time value updates
@@ -784,6 +815,7 @@ Upload it to see automatic evaluation in action!
 ### 3. Background Effects
 
 **Layered Atmospheric Design**:
+
 - **Layer 1**: Radial gradient (cyan → transparent) with pulsating opacity
 - **Layer 2**: Star field with continuous drift
 - **Layer 3**: Mouse parallax (background-position based on cursor)
@@ -794,17 +826,20 @@ Upload it to see automatic evaluation in action!
 ## 📱 Responsive Design
 
 ### Mobile (< 768px)
+
 - Stacked single-column layout
 - Reduced blur effects for performance
 - Simplified animations
 - Touch-optimized controls
 
 ### Tablet (768px - 1024px)
+
 - 2-column grid for metrics
 - Moderate blur effects
 - Optimized touch targets
 
 ### Desktop (> 1024px)
+
 - Full multi-column layouts
 - Maximum blur and parallax effects
 - Enhanced particle animations
@@ -815,6 +850,7 @@ Upload it to see automatic evaluation in action!
 ## 🛠️ Development
 
 ### Project Scripts
+
 ```bash
 npm start       # Start production server
 npm run dev     # Start with nodemon (auto-reload)
@@ -826,6 +862,7 @@ npm test        # Run tests (to be implemented)
 **Example: Create a new prediction endpoint**
 
 1. **Add logic to service** (`services/mlService.js`)
+
 ```javascript
 async function predictBatch(features) {
   // Business logic here
@@ -841,17 +878,18 @@ async function predictBatchHandler(req, res, next) {
   }
 }
 
-module.exports = { 
+module.exports = {
   // ...existing exports
   predictBatch,
-  predictBatchHandler
+  predictBatchHandler,
 };
 ```
 
 2. **Add route** (`routes/api.js`)
+
 ```javascript
-const mlService = require('../services/mlService');
-router.post('/predict/batch', mlService.predictBatchHandler);
+const mlService = require("../services/mlService");
+router.post("/predict/batch", mlService.predictBatchHandler);
 ```
 
 That's it! No controllers needed.
@@ -877,6 +915,7 @@ This project is licensed under the ISC License.
 ## 👨‍💻 Author
 
 **AEXIS Team**
+
 - GitHub: [@yourusername](https://github.com/yourusername)
 
 ---
@@ -907,4 +946,3 @@ This project is licensed under the ISC License.
 ---
 
 **Made with 💫 by the AEXIS Team | Exploring the cosmos through AI**
-

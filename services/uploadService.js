@@ -153,6 +153,17 @@ const upload = multer({
 async function uploadHandler(req, res, next) {
   try {
     const data = await processUpload(req.file);
+
+    // Update metrics when new data is uploaded
+    const metricsService = require("./metricsService");
+    const newMetrics = metricsService.generateRandomMetrics(0.88);
+
+    metricsService.updateModelMetrics({
+      ...newMetrics,
+      version: "2." + (Math.floor(Math.random() * 10) + 2),
+      trainedOn: new Date().toISOString(),
+    });
+
     res.json({ success: true, message: "File uploaded successfully", data });
   } catch (error) {
     next(error);

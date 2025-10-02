@@ -1,27 +1,62 @@
-const mockMetrics = {
+let currentModelState = {
+  version: "2.1",
   accuracy: 0.928,
   precision: 0.914,
   recall: 0.941,
   f1Score: 0.927,
+  confusionMatrix: {
+    truePositive: 342,
+    trueNegative: 298,
+    falsePositive: 28,
+    falseNegative: 21,
+  },
+  lastUpdated: new Date().toISOString(),
+  trainedOn: null,
 };
+
+function generateRandomMetrics(baseAccuracy = 0.9) {
+  const accuracy = baseAccuracy + Math.random() * 0.08;
+  const precision = accuracy - 0.02 + Math.random() * 0.04;
+  const recall = accuracy - 0.01 + Math.random() * 0.03;
+
+  const total = 689;
+  const positives = Math.floor(total * 0.52);
+  const negatives = total - positives;
+
+  const tp = Math.floor(positives * recall);
+  const fn = positives - tp;
+  const tn = Math.floor(negatives * precision);
+  const fp = negatives - tn;
+
+  return {
+    accuracy: parseFloat(accuracy.toFixed(3)),
+    precision: parseFloat(precision.toFixed(3)),
+    recall: parseFloat(recall.toFixed(3)),
+    f1Score: parseFloat(
+      ((2 * (precision * recall)) / (precision + recall)).toFixed(3)
+    ),
+    confusionMatrix: {
+      truePositive: tp,
+      trueNegative: tn,
+      falsePositive: fp,
+      falseNegative: fn,
+    },
+  };
+}
+
+function updateModelMetrics(newMetrics) {
+  currentModelState = {
+    ...currentModelState,
+    ...newMetrics,
+    lastUpdated: new Date().toISOString(),
+  };
+  return currentModelState;
+}
 
 async function getCurrentMetrics() {
   return new Promise((resolve) => {
     setTimeout(() => {
-      resolve({
-        version: "2.1",
-        accuracy: mockMetrics.accuracy,
-        precision: mockMetrics.precision,
-        recall: mockMetrics.recall,
-        f1Score: mockMetrics.f1Score,
-        confusionMatrix: {
-          truePositive: 342,
-          trueNegative: 298,
-          falsePositive: 28,
-          falseNegative: 21,
-        },
-        lastUpdated: new Date().toISOString(),
-      });
+      resolve({ ...currentModelState });
     }, 300);
   });
 }
@@ -181,4 +216,6 @@ module.exports = {
   historyHandler,
   featureImportanceHandler,
   historicalDataHandler,
+  updateModelMetrics,
+  generateRandomMetrics,
 };

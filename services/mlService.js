@@ -40,12 +40,26 @@ async function trainModel(dataPath, hyperparameters = {}, features = []) {
 
   return new Promise((resolve) => {
     setTimeout(() => {
+      const metricsService = require("./metricsService");
+
+      // Generate new improved metrics
+      const newMetrics = metricsService.generateRandomMetrics(0.92);
+
+      // Update the global metrics state
       const newVersion = (parseFloat(currentModel.version) + 0.1).toFixed(1);
-      const newAccuracy = 0.85 + Math.random() * 0.1;
+      metricsService.updateModelMetrics({
+        ...newMetrics,
+        version: newVersion,
+        trainedOn: new Date().toISOString(),
+      });
+
+      const trainAccuracy = newMetrics.accuracy;
+      currentModel.accuracy = trainAccuracy;
+      currentModel.version = newVersion;
 
       resolve({
         modelVersion: newVersion,
-        accuracy: parseFloat(newAccuracy.toFixed(3)),
+        accuracy: trainAccuracy,
         trainingTime: "4.2s",
         features,
         hyperparameters,
