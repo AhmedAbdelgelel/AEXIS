@@ -42,5 +42,4 @@ app.listen(PORT, () => {
   console.log(`🚀 AEXIS Server running on http://localhost:${PORT}`);
   console.log(`📡 Explorer: http://localhost:${PORT}/explore`);
   console.log(`🔬 Lab: http://localhost:${PORT}/lab`);
-  console.log(`📊 API Docs: http://localhost:${PORT}/api/docs`);
 });
