@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explorer - AEXIS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/explore.css">
+    <script src="https://cdn.plot.ly/plotly-2.26.0.min.js"></script>
+</head>
+<body>
+    <div class="ambient-glow"></div>
+    <div class="starfield"></div>
+    
+    <header class="main-header">
+        <nav class="nav-container">
+            <div class="logo flicker">AEXIS</div>
+            <ul class="nav-links">
+                <li><a href="/">HOME</a></li>
+                <li><a href="/explore" class="active">EXPLORER</a></li>
+                <li><a href="/lab">THE LAB</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="explorer-container">
+        <h1 class="page-title flicker">THE EXPLORER</h1>
+        <p class="page-subtitle">Discover and classify exoplanets with AI guidance</p>
+
+        <div class="explorer-grid">
+            <!-- Input Form Section -->
+            <section class="input-section glass">
+                <h2 class="section-title">EXOPLANET FINDER</h2>
+                <form id="classificationForm">
+                    <div class="form-group">
+                        <label for="orbitalPeriod">
+                            Orbital Period (days)
+                            <span class="info-icon" data-tooltip="Time it takes the planet to complete one orbit">ℹ️</span>
+                        </label>
+                        <input type="number" id="orbitalPeriod" step="0.01" required class="input-field">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="planetRadius">
+                            Planet Radius (Earth radii)
+                            <span class="info-icon" data-tooltip="Size of the planet relative to Earth">ℹ️</span>
+                        </label>
+                        <input type="number" id="planetRadius" step="0.01" required class="input-field">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="stellarTemp">
+                            Stellar Temperature (K)
+                            <span class="info-icon" data-tooltip="Temperature of the host star in Kelvin">ℹ️</span>
+                        </label>
+                        <input type="number" id="stellarTemp" step="1" required class="input-field">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="transitDepth">
+                            Transit Depth (%)
+                            <span class="info-icon" data-tooltip="Brightness decrease when planet passes in front of star">ℹ️</span>
+                        </label>
+                        <input type="number" id="transitDepth" step="0.001" required class="input-field">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="impactParam">
+                            Impact Parameter
+                            <span class="info-icon" data-tooltip="Distance from center of stellar disk during transit">ℹ️</span>
+                        </label>
+                        <input type="number" id="impactParam" step="0.01" min="0" max="1" required class="input-field">
+                    </div>
+
+                    <button type="submit" class="classify-button" id="classifyBtn">
+                        <span class="button-text">CLASSIFY EXOPLANET</span>
+                        <span class="button-loader" style="display: none;">⟳</span>
+                    </button>
+                </form>
+            </section>
+
+            <!-- Results Section -->
+            <section class="results-section glass" id="resultsSection" style="display: none;">
+                <h2 class="section-title">CLASSIFICATION RESULT</h2>
+                
+                <div class="result-badge" id="resultBadge"></div>
+                
+                <div class="confidence-container">
+                    <div class="confidence-label">CONFIDENCE SCORE</div>
+                    <div class="confidence-score" id="confidenceScore">0%</div>
+                </div>
+
+                <div class="result-details">
+                    <div class="detail-item">
+                        <span class="detail-label">Model Version:</span>
+                        <span class="detail-value" id="resultModelVersion">-</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Timestamp:</span>
+                        <span class="detail-value" id="resultTimestamp">-</span>
+                    </div>
+                </div>
+
+                <button class="secondary-button" onclick="resetForm()">CLASSIFY ANOTHER</button>
+            </section>
+
+            <!-- Visualization Section -->
+            <section class="visualization-section glass">
+                <h2 class="section-title">DATA VISUALIZATION</h2>
+                <div id="scatterPlot" class="plot-container"></div>
+                <div class="plot-legend">
+                    <span class="legend-item"><span class="legend-dot confirmed"></span> Confirmed Exoplanet</span>
+                    <span class="legend-item"><span class="legend-dot false-positive"></span> False Positive</span>
+                    <span class="legend-item"><span class="legend-dot new-point"></span> Your Classification</span>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="/js/explore.js"></script>
+    <script src="/js/animations.js"></script>
+</body>
+</html>

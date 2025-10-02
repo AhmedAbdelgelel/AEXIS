@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Lab - AEXIS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/lab.css">
+    <script src="https://cdn.plot.ly/plotly-2.26.0.min.js"></script>
+</head>
+<body>
+    <div class="ambient-glow"></div>
+    <div class="starfield"></div>
+    
+    <header class="main-header">
+        <nav class="nav-container">
+            <div class="logo flicker">AEXIS</div>
+            <ul class="nav-links">
+                <li><a href="/">HOME</a></li>
+                <li><a href="/explore">EXPLORER</a></li>
+                <li><a href="/lab" class="active">THE LAB</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="lab-container">
+        <h1 class="page-title flicker">THE LAB</h1>
+        <p class="page-subtitle">Advanced ML Model Control & Data Management</p>
+
+        <div class="lab-grid">
+            <!-- Data Management Panel -->
+            <section class="data-panel glass">
+                <h2 class="section-title">DATA MANAGEMENT</h2>
+                
+                <div class="upload-zone" id="uploadZone">
+                    <div class="upload-icon">📊</div>
+                    <div class="upload-text">INGEST NEW EXOPLANET DATA</div>
+                    <div class="upload-subtext">Drag & Drop CSV file or click to browse</div>
+                    <input type="file" id="fileInput" accept=".csv" style="display: none;">
+                </div>
+                
+                <div class="progress-container" id="progressContainer" style="display: none;">
+                    <div class="progress-bar" id="progressBar"></div>
+                    <div class="progress-text" id="progressText">0%</div>
+                </div>
+
+                <div class="feature-selection">
+                    <h3 class="subsection-title">FEATURE SELECTION</h3>
+                    <div class="feature-list">
+                        <label class="feature-item">
+                            <input type="checkbox" checked data-feature="orbitalPeriod">
+                            <span>Orbital Period</span>
+                        </label>
+                        <label class="feature-item">
+                            <input type="checkbox" checked data-feature="planetRadius">
+                            <span>Planet Radius</span>
+                        </label>
+                        <label class="feature-item">
+                            <input type="checkbox" checked data-feature="stellarTemp">
+                            <span>Stellar Temperature (Teff)</span>
+                        </label>
+                        <label class="feature-item">
+                            <input type="checkbox" checked data-feature="transitDepth">
+                            <span>Transit Depth</span>
+                        </label>
+                        <label class="feature-item">
+                            <input type="checkbox" checked data-feature="impactParam">
+                            <span>Impact Parameter</span>
+                        </label>
+                        <label class="feature-item">
+                            <input type="checkbox" data-feature="semiMajorAxis">
+                            <span>Semi-Major Axis</span>
+                        </label>
+                        <label class="feature-item">
+                            <input type="checkbox" data-feature="equilibriumTemp">
+                            <span>Equilibrium Temperature</span>
+                        </label>
+                    </div>
+                </div>
+
+                <button class="train-button" id="trainButton">
+                    <span>🚀 TRAIN MODEL (v<span id="nextVersion">2.2</span>)</span>
+                </button>
+            </section>
+
+            <!-- Metrics Dashboard -->
+            <section class="metrics-panel glass">
+                <h2 class="section-title">MODEL PERFORMANCE</h2>
+                
+                <div class="accuracy-gauge">
+                    <svg width="200" height="200" viewBox="0 0 200 200" id="accuracyGauge">
+                        <circle cx="100" cy="100" r="80" fill="none" stroke="#1a1a1a" stroke-width="20"/>
+                        <circle cx="100" cy="100" r="80" fill="none" stroke="#FF8C00" stroke-width="20" 
+                                stroke-dasharray="502.65" stroke-dashoffset="100" 
+                                transform="rotate(-90 100 100)" id="accuracyCircle"/>
+                        <text x="100" y="95" text-anchor="middle" class="gauge-value" id="gaugeValue">92.8%</text>
+                        <text x="100" y="115" text-anchor="middle" class="gauge-label">F1-Score</text>
+                    </svg>
+                </div>
+
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-label">Accuracy</div>
+                        <div class="metric-value" id="metricAccuracy">92.8%</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-label">Precision</div>
+                        <div class="metric-value" id="metricPrecision">91.4%</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-label">Recall</div>
+                        <div class="metric-value" id="metricRecall">94.1%</div>
+                    </div>
+                </div>
+
+                <div class="confusion-matrix">
+                    <h3 class="subsection-title">CONFUSION MATRIX</h3>
+                    <div class="matrix-grid">
+                        <div class="matrix-cell" data-type="tp">
+                            <div class="cell-value" id="matrixTP">342</div>
+                            <div class="cell-label">True Positive</div>
+                        </div>
+                        <div class="matrix-cell" data-type="fp">
+                            <div class="cell-value" id="matrixFP">28</div>
+                            <div class="cell-label">False Positive</div>
+                        </div>
+                        <div class="matrix-cell" data-type="fn">
+                            <div class="cell-value" id="matrixFN">21</div>
+                            <div class="cell-label">False Negative</div>
+                        </div>
+                        <div class="matrix-cell" data-type="tn">
+                            <div class="cell-value" id="matrixTN">298</div>
+                            <div class="cell-label">True Negative</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Feature Importance Chart -->
+            <section class="importance-panel glass">
+                <h2 class="section-title">FEATURE IMPORTANCE</h2>
+                <div id="featureChart" class="chart-container"></div>
+            </section>
+
+            <!-- Hyperparameter Tuning -->
+            <section class="tuning-panel glass">
+                <h2 class="section-title">HYPERPARAMETER TUNING</h2>
+                
+                <div class="model-selector">
+                    <label>Algorithm:</label>
+                    <select id="algorithmSelect" class="select-field">
+                        <option value="randomForest" selected>Random Forest</option>
+                        <option value="svm">Support Vector Machine</option>
+                        <option value="lightgbm">LightGBM</option>
+                        <option value="xgboost">XGBoost</option>
+                        <option value="neuralNet">Neural Network</option>
+                    </select>
+                </div>
+
+                <div class="hyperparameters" id="hyperparameters">
+                    <div class="param-control">
+                        <label>Number of Trees: <span id="nTreesValue">100</span></label>
+                        <input type="range" min="10" max="500" value="100" id="nTrees" class="slider">
+                    </div>
+                    <div class="param-control">
+                        <label>Max Depth: <span id="maxDepthValue">10</span></label>
+                        <input type="range" min="3" max="50" value="10" id="maxDepth" class="slider">
+                    </div>
+                    <div class="param-control">
+                        <label>Min Samples Split: <span id="minSamplesValue">2</span></label>
+                        <input type="range" min="2" max="20" value="2" id="minSamples" class="slider">
+                    </div>
+                    <div class="param-control">
+                        <label>Learning Rate: <span id="learningRateValue">0.1</span></label>
+                        <input type="range" min="0.01" max="1" step="0.01" value="0.1" id="learningRate" class="slider">
+                    </div>
+                </div>
+
+                <div class="validation-score" id="validationScore" style="display: none;">
+                    <div class="score-label">Validation Score:</div>
+                    <div class="score-value" id="scoreValue">-</div>
+                    <div class="score-improvement" id="scoreImprovement">-</div>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="validate-button" id="validateButton">QUICK VALIDATE</button>
+                    <button class="deploy-button" id="deployButton">DEPLOY NEW MODEL</button>
+                </div>
+            </section>
+        </div>
+
+        <!-- Training Notification -->
+        <div class="notification" id="notification" style="display: none;">
+            <div class="notification-content">
+                <span class="notification-icon">⟳</span>
+                <span class="notification-text" id="notificationText">Training in progress...</span>
+            </div>
+        </div>
+    </main>
+
+    <script src="/js/lab.js"></script>
+    <script src="/js/animations.js"></script>
+</body>
+</html>

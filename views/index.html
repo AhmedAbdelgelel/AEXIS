@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AEXIS - Exoplanet Haunter</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/home.css">
+</head>
+<body>
+    <div class="ambient-glow"></div>
+    <div class="starfield"></div>
+    
+    <header class="main-header">
+        <nav class="nav-container">
+            <div class="logo flicker">AEXIS</div>
+            <ul class="nav-links">
+                <li><a href="/" class="active">HOME</a></li>
+                <li><a href="/explore">EXPLORER</a></li>
+                <li><a href="/lab">THE LAB</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="home-container">
+        <section class="hero-section">
+            <h1 class="hero-title flicker">AEXIS</h1>
+            <h2 class="hero-subtitle">EXOPLANET HAUNTER</h2>
+            <p class="hero-description">
+                AI-Powered Deep Space Observatory for Exoplanet Classification
+            </p>
+        </section>
+
+        <section class="cta-section">
+            <div class="cta-card glass novice-card" onclick="location.href='/explore'">
+                <div class="card-icon">🌍</div>
+                <h3>THE EXPLORER</h3>
+                <p>Interactive guided interface for discovering exoplanets</p>
+                <button class="cta-button novice-button">START EXPLORING</button>
+            </div>
+
+            <div class="cta-card glass researcher-card" onclick="location.href='/lab'">
+                <div class="card-icon">🔬</div>
+                <h3>THE LAB</h3>
+                <p>Advanced dashboard for researchers and ML engineers</p>
+                <button class="cta-button researcher-button">ENTER THE LAB</button>
+            </div>
+        </section>
+
+        <section class="status-section">
+            <div class="status-card glass">
+                <div class="status-header">CURRENT MODEL STATUS</div>
+                <div class="status-content">
+                    <div class="status-item">
+                        <span class="status-label">Version:</span>
+                        <span class="status-value" id="modelVersion">v2.1</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-label">Accuracy:</span>
+                        <span class="status-value neon-glow" id="modelAccuracy">92.8%</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-label">Status:</span>
+                        <span class="status-value pulse">ACTIVE</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-label">Algorithm:</span>
+                        <span class="status-value">Random Forest</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <p>&copy; 2025 AEXIS - Exoplanet Haunter | AI-Powered Space Discovery</p>
+    </footer>
+
+    <script src="/js/home.js"></script>
+    <script src="/js/animations.js"></script>
+</body>
+</html>
