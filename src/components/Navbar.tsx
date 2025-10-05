@@ -21,7 +21,7 @@ export default function Navbar({ activeSection, onNavigate }: NavbarProps) {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center gap-3">
             <Telescope className="w-8 h-8 text-blue-400" />
-            <span className="text-xl font-bold glow-text">ExoHunter AI</span>
+            <span className="text-xl font-bold glow-text">AEXIS</span>
           </div>
 
           <div className="flex items-center gap-1">
