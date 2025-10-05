@@ -1,6 +1,6 @@
-# ExoHunter AI - Exoplanet Detection Platform
+# AEXIS - Exoplanet Detection Platform
 
-![ExoHunter AI Banner](https://img.shields.io/badge/NASA-Space%20Apps%20Challenge%202025-blue)
+![AEXIS Banner](https://img.shields.io/badge/NASA-Space%20Apps%20Challenge%202025-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 ![Python](https://img.shields.io/badge/python-3.11-blue)
 ![React](https://img.shields.io/badge/react-18.3-blue)
@@ -9,7 +9,7 @@ An AI-powered platform for detecting exoplanets in stellar light curve data, bui
 
 ## Overview
 
-ExoHunter AI democratizes exoplanet discovery by making advanced machine learning detection tools accessible to both researchers and novices. The platform analyzes time-series light curve data from NASA missions (Kepler, K2, TESS) to identify potential exoplanet transits using deep learning.
+AEXIS democratizes exoplanet discovery by making advanced machine learning detection tools accessible to both researchers and novices. The platform analyzes time-series light curve data from NASA missions (Kepler, K2, TESS) to identify potential exoplanet transits using deep learning.
 
 ### Key Features
 
@@ -54,7 +54,7 @@ ExoHunter AI democratizes exoplanet discovery by making advanced machine learnin
 #### 1. Clone the Repository
 ```bash
 git clone <repository-url>
-cd exohunter-ai
+cd AEXIS
 ```
 
 #### 2. Frontend Setup
@@ -247,7 +247,7 @@ GET /api/sample-data
 ## Project Structure
 
 ```
-exohunter-ai/
+AEXIS/
 ├── src/
 │   ├── components/
 │   │   ├── sections/
