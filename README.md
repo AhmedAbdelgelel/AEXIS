@@ -23,6 +23,7 @@ AEXIS democratizes exoplanet discovery by making advanced machine learning detec
 ## Architecture
 
 ### Frontend
+
 - **Framework**: React 18 + TypeScript + Vite
 - **Styling**: Tailwind CSS with custom space-themed animations
 - **Visualization**: Plotly.js for interactive charts
@@ -30,12 +31,14 @@ AEXIS democratizes exoplanet discovery by making advanced machine learning detec
 - **Database**: Supabase for data persistence
 
 ### Backend
+
 - **Framework**: FastAPI (Python)
 - **ML Framework**: PyTorch for deep learning models
 - **Data Processing**: NumPy, Pandas, Scikit-learn
 - **API**: RESTful endpoints for prediction, training, and data management
 
 ### Machine Learning
+
 - **Architecture**: 1D Convolutional Neural Network (CNN)
 - **Alternative**: LSTM for sequential pattern recognition
 - **Input**: Normalized flux time-series data (1000 data points)
@@ -45,19 +48,41 @@ AEXIS democratizes exoplanet discovery by making advanced machine learning detec
 ## Quick Start
 
 ### Prerequisites
+
 - Node.js 18+ and npm
 - Python 3.11+
 - Docker and Docker Compose (optional)
 
+### ⚡ Quick Deploy (Recommended)
+
+Want to deploy immediately? Follow these simple steps:
+
+1. **Deploy Backend to Railway**
+
+   - Visit [railway.app](https://railway.app/)
+   - Import from GitHub → Select this repo
+   - Copy your Railway URL
+
+2. **Deploy Frontend to Netlify**
+   - Visit [netlify.app](https://app.netlify.com/)
+   - Import from GitHub → Select this repo
+   - Add environment variables (see `DEPLOYMENT_CHECKLIST.md`)
+   - Deploy!
+
+📖 **Detailed deployment guide**: See `DEPLOY_GUIDE.md`  
+✅ **Quick checklist**: See `DEPLOYMENT_CHECKLIST.md`
+
 ### Local Development
 
 #### 1. Clone the Repository
+
 ```bash
 git clone <repository-url>
 cd AEXIS
 ```
 
 #### 2. Frontend Setup
+
 ```bash
 # Install dependencies
 npm install
@@ -69,6 +94,7 @@ npm run dev
 The frontend will be available at `http://localhost:5173`
 
 #### 3. Backend Setup
+
 ```bash
 cd backend
 
@@ -86,6 +112,7 @@ uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 The API will be available at `http://localhost:8000`
 
 #### 4. Fetch NASA Data (Optional)
+
 ```bash
 cd backend/data
 python fetch_nasa_data.py
@@ -127,6 +154,7 @@ docker-compose up --build
 ## Data Format
 
 ### CSV Format
+
 ```csv
 time,flux
 0.0,1.0000
@@ -137,16 +165,18 @@ time,flux
 ```
 
 ### JSON Format
+
 ```json
 {
   "time": [0.0, 0.5, 1.0, 1.5, 2.0],
-  "flux": [1.0000, 0.9998, 0.9850, 0.9852, 1.0001]
+  "flux": [1.0, 0.9998, 0.985, 0.9852, 1.0001]
 }
 ```
 
 ## API Endpoints
 
 ### Prediction
+
 ```bash
 POST /api/predict
 Content-Type: application/json
@@ -160,6 +190,7 @@ Content-Type: application/json
 ```
 
 ### Training
+
 ```bash
 POST /api/train
 Content-Type: application/json
@@ -174,11 +205,13 @@ Content-Type: application/json
 ```
 
 ### Get Metrics
+
 ```bash
 GET /api/metrics
 ```
 
 ### Sample Data
+
 ```bash
 GET /api/sample-data
 ```
@@ -186,6 +219,7 @@ GET /api/sample-data
 ## Model Details
 
 ### 1D CNN Architecture
+
 - **Input Layer**: 1 channel × 1000 time steps
 - **Conv Layers**: 3-5 configurable 1D convolutional layers
 - **Pooling**: Max pooling after each conv layer
@@ -195,6 +229,7 @@ GET /api/sample-data
 - **Output**: Softmax for binary classification
 
 ### LSTM Architecture
+
 - **Input**: Sequence of 1000 flux values
 - **LSTM Layers**: 2-4 stacked layers with 128 hidden units
 - **FC Layers**: 64 → 2 neurons
@@ -204,6 +239,7 @@ GET /api/sample-data
 ## Database Schema
 
 ### Tables
+
 - **datasets**: Uploaded light curve metadata
 - **predictions**: AI detection results
 - **models**: Trained model versions and metrics
@@ -228,6 +264,7 @@ GET /api/sample-data
 ## Technologies
 
 ### Frontend
+
 - React 18.3
 - TypeScript 5.5
 - Vite 5.4
@@ -237,6 +274,7 @@ GET /api/sample-data
 - Supabase JS 2.57
 
 ### Backend
+
 - FastAPI 0.104
 - PyTorch 2.1
 - NumPy 1.24
@@ -311,4 +349,4 @@ Built with love for the NASA Space Apps Challenge 2025
 
 ---
 
-*"Somewhere, something incredible is waiting to be known."* - Carl Sagan
+_"Somewhere, something incredible is waiting to be known."_ - Carl Sagan
