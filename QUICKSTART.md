@@ -1,6 +1,6 @@
-# ExoHunter AI - Quick Start Guide
+#  - Quick Start Guide
 
-Welcome to ExoHunter AI! This guide will get you up and running in under 5 minutes.
+Welcome to AEXIS! This guide will get you up and running in under 5 minutes.
 
 ## What You'll Need
 
