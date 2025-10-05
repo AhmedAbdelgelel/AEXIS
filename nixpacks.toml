@@ -5,6 +5,11 @@ nixPkgs = ["python311"]
 cmds = [
   "python -m venv /opt/venv",
   ". /opt/venv/bin/activate && pip install --upgrade pip",
+  # Install CPU-only PyTorch FIRST to prevent CUDA installation
+  ". /opt/venv/bin/activate && pip install --no-cache-dir torch==2.1.0 torchvision==0.16.0 --index-url https://download.pytorch.org/whl/cpu",
+  # Install ultralytics (will use CPU PyTorch)
+  ". /opt/venv/bin/activate && pip install --no-cache-dir ultralytics==8.0.200",
+  # Install other dependencies
   ". /opt/venv/bin/activate && pip install --no-cache-dir -r backend/requirements.txt"
 ]
 
