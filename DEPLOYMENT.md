@@ -9,7 +9,7 @@ AEXIS is deployed with a split architecture:
 ## Deployment URLs
 
 ### Production
-- **Frontend**: https://bejewelled-paprenjak-6896e4.netlify.app/
+- **Frontend**: https://aexis.netlify.app/
 - **Backend API**: https://aexis-production.up.railway.app/
 - **API Docs**: https://aexis-production.up.railway.app/docs
 
@@ -33,7 +33,7 @@ Environment variables (if needed):
 The backend allows requests from:
 - `http://localhost:5173` (local development)
 - `http://localhost:3000` (alternative local)
-- `https://bejewelled-paprenjak-6896e4.netlify.app` (production)
+- `https://aexis.netlify.app` (production)
 
 ## How It Works
 
@@ -60,7 +60,7 @@ curl https://aexis-production.up.railway.app/health
 ```
 
 ### Test Frontend
-Visit: https://bejewelled-paprenjak-6896e4.netlify.app/
+Visit: https://aexis.netlify.app/
 
 ## Updating Deployments
 
