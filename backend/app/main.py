@@ -6,7 +6,7 @@ import numpy as np
 import json
 
 app = FastAPI(
-    title="ExoHunter AI API",
+    title="AEXIS API",
     description="Exoplanet detection using deep learning",
     version="1.0.0"
 )
@@ -57,7 +57,7 @@ class ModelMetrics(BaseModel):
 @app.get("/")
 async def root():
     return {
-        "message": "ExoHunter AI API",
+        "message": "AEXIS API",
         "version": "1.0.0",
         "status": "operational"
     }
