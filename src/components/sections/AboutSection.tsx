@@ -17,7 +17,7 @@ export default function AboutSection() {
     <section id="about" className="min-h-screen px-4 pt-24 pb-12">
       <div className="max-w-6xl mx-auto space-y-8">
         <div className="text-center space-y-4">
-          <h2 className="text-4xl font-bold glow-text">About ExoHunter AI</h2>
+          <h2 className="text-4xl font-bold glow-text">About AEXIS</h2>
           <p className="text-gray-400 text-lg">
             Discover distant worlds through the power of artificial intelligence
           </p>
@@ -30,7 +30,7 @@ export default function AboutSection() {
               <div>
                 <h3 className="text-2xl font-bold mb-3">NASA Space Apps Challenge 2025</h3>
                 <p className="text-gray-300 leading-relaxed">
-                  ExoHunter AI was developed for the NASA Space Apps Challenge 2025, addressing
+                  AEXIS AI was developed for the NASA Space Apps Challenge 2025, addressing
                   the challenge "A World Away: Hunting for Exoplanets with AI". This platform
                   empowers both researchers and novices to discover exoplanets using cutting-edge
                   machine learning techniques applied to stellar light curve data.
@@ -44,7 +44,7 @@ export default function AboutSection() {
                 Our mission is to democratize exoplanet discovery by making advanced AI detection
                 tools accessible to everyone. Whether you're a professional astronomer analyzing
                 thousands of light curves or a student taking your first steps into planetary
-                science, ExoHunter AI provides the tools you need to hunt for distant worlds.
+                science, AEXIS provides the tools you need to hunt for distant worlds.
               </p>
             </div>
           </div>
@@ -90,7 +90,7 @@ export default function AboutSection() {
                 <h3 className="text-xl font-semibold">Data Sources</h3>
               </div>
               <p className="text-gray-300">
-                ExoHunter AI leverages open datasets from NASA's premier exoplanet hunting missions:
+                AEXIS leverages open datasets from NASA's premier exoplanet hunting missions:
               </p>
               <div className="space-y-2">
                 <DataSourceBadge name="Kepler Mission" count="2,778 discoveries" />
@@ -141,7 +141,7 @@ export default function AboutSection() {
               />
               <FAQItem
                 question="Is this suitable for research?"
-                answer="ExoHunter AI provides research-grade tools including hyperparameter tuning, detailed metrics, and raw data export. However, detected candidates should be validated through additional methods."
+                answer="AEXIS provides research-grade tools including hyperparameter tuning, detailed metrics, and raw data export. However, detected candidates should be validated through additional methods."
               />
             </div>
           </div>
@@ -152,7 +152,7 @@ export default function AboutSection() {
             <div>
               <h3 className="text-xl font-semibold mb-2">Open Source</h3>
               <p className="text-gray-400">
-                ExoHunter AI is released under the MIT License. Contribute on GitHub!
+                AEXIS is released under the MIT License. Contribute on GitHub!
               </p>
             </div>
             <div className="flex gap-4">
@@ -170,7 +170,7 @@ export default function AboutSection() {
 
         <div className="text-center text-gray-500 text-sm space-y-2">
           <p>Built with React, TypeScript, PyTorch, FastAPI, and Supabase</p>
-          <p>© 2025 ExoHunter AI Team | NASA Space Apps Challenge</p>
+          <p>© 2025 AEXIS Team | NASA Space Apps Challenge</p>
         </div>
       </div>
     </section>
