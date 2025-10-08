@@ -1,6 +1,6 @@
-#  - Quick Start Guide
+# - Quick Start Guide
 
-Welcome to AEXIS! This guide will get you up and running in under 5 minutes.
+Welcome to AEXIS This guide will get you up and running in under 5 minutes.
 
 ## What You'll Need
 
@@ -14,11 +14,13 @@ The application is currently running in development mode. Open your browser and 
 ## First Steps
 
 ### 1. Explore the Home Page
+
 - Read about what light curves are and how exoplanet detection works
 - Check out the statistics on Kepler and TESS discoveries
 - Choose your path: Novice or Researcher
 
 ### 2. Try Sample Data (Recommended for First-Time Users)
+
 1. Click the **"Try Sample Data"** button on the home page
 2. You'll be automatically taken to the Detection section
 3. View the interactive light curve plot
@@ -30,6 +32,7 @@ The application is currently running in development mode. Open your browser and 
    - List of detected transit events with periods and depths
 
 ### 3. Upload Your Own Data
+
 1. Navigate to the **Upload** section using the top navigation bar
 2. Prepare your data in CSV or JSON format:
    - CSV: Must have "time" and "flux" columns
@@ -39,6 +42,7 @@ The application is currently running in development mode. Open your browser and 
 4. Once uploaded, navigate to **Detect** to analyze
 
 ### 4. Train Custom Models (Advanced)
+
 1. Go to the **Train** section
 2. Adjust hyperparameters using the sliders:
    - Learning Rate: 0.0001 - 0.01
@@ -50,6 +54,7 @@ The application is currently running in development mode. Open your browser and 
 5. View updated model metrics and confusion matrix
 
 ### 5. View Results History
+
 1. Navigate to the **Results** section
 2. Browse all past detections
 3. Filter by transit status
@@ -57,7 +62,9 @@ The application is currently running in development mode. Open your browser and 
 5. Export results for further analysis
 
 ### 6. Learn More
+
 Visit the **About** section to:
+
 - Understand the transit method
 - Learn about NASA data sources
 - Read FAQs
@@ -66,12 +73,14 @@ Visit the **About** section to:
 ## Tips for Best Results
 
 ### For Novices:
+
 - Start with the sample data to understand the workflow
 - Read the tooltips and explanations throughout the app
 - Focus on the "What is a Light Curve?" section
 - Don't worry about the technical details initially
 
 ### For Researchers:
+
 - Upload multiple datasets for batch analysis
 - Experiment with different hyperparameters
 - Export raw data for external validation
@@ -81,11 +90,13 @@ Visit the **About** section to:
 ## Understanding the Results
 
 ### Confidence Score
+
 - **80-100%**: High confidence - likely a real transit
 - **50-79%**: Medium confidence - requires further validation
 - **0-49%**: Low confidence - possible false positive
 
 ### Detected Transits Table
+
 - **Period**: Time between transits (in days)
 - **Depth**: How much starlight is blocked (in %)
 - **Duration**: How long the transit lasts
@@ -94,6 +105,7 @@ Visit the **About** section to:
 ## Data Format Examples
 
 ### CSV Format
+
 ```csv
 time,flux
 0.0,1.0000
@@ -104,10 +116,11 @@ time,flux
 ```
 
 ### JSON Format
+
 ```json
 {
   "time": [0.0, 0.5, 1.0, 1.5, 2.0],
-  "flux": [1.0000, 0.9998, 0.9850, 0.9852, 1.0001]
+  "flux": [1.0, 0.9998, 0.985, 0.9852, 1.0001]
 }
 ```
 
@@ -161,4 +174,4 @@ A: The training feature uses incremental learning to update the model with your 
 
 **Happy Exoplanet Hunting!**
 
-*"Somewhere, something incredible is waiting to be known."* - Carl Sagan
+_"Somewhere, something incredible is waiting to be known."_ - Carl Sagan
